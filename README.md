@@ -1,28 +1,101 @@
 # SwiftChatDashboard
 
-**SwiftChatDashboard** is an advanced iOS app demonstrating real-time chat, multi-endpoint dashboard, image handling, and custom animations using **SwiftUI** and **Clean Architecture**.  
+**SwiftChatDashboard** is a SwiftUI-based iOS application that demonstrates a modern chat interface combined with a feature-rich dashboard.
+The app focuses on **Clean Architecture**, **MVVM**, and smooth user experience using native Apple frameworks.
 
 ---
 
-## **Features**
+## ✨ Features
 
-- Login screen with polished UI and animations  
-- Real-time chat simulation using free APIs (JSONPlaceholder / Random User)  
-- Chat bubbles with dynamic height and custom animations  
-- Image sending via camera or photo library  
-- Multi-endpoint dashboard (weather, news, posts)  
-- Pull-to-refresh, search, and smooth transitions  
-- Clean Architecture + MVVM pattern  
+### 💬 Chat
+
+* Chat list with unread message count
+* Dynamic chat bubbles with auto-scrolling
+* Last message & timestamp shown per conversation
+* Mark messages as read when opening a chat
+* System avatars with clean UI styling
+
+### 📊 Dashboard
+
+* Location-based simulated weather
+* Interactive map with user & custom locations
+* Statistics chart showing:
+
+  * Unread messages
+  * Images sent
+  * Saved locations
+* Pull-to-refresh support
+
+### 🖼 Image Handling
+
+* Capture images using camera
+* Select images from photo library
+* Grid-based image gallery
+* Image detail preview
+
+### 🎨 UI & UX
+
+* SwiftUI animations & transitions
+* Gradient backgrounds & modern card layouts
+* Responsive layouts for different screen sizes
 
 ---
 
-## **Tech Stack**
+## 🧱 Architecture
 
-- SwiftUI  
-- MVVM + Clean Architecture  
-- Async/Await Networking  
-- Free APIs: JSONPlaceholder, Random User, OpenWeatherMap, NewsAPI  
-- Swift Charts (for dashboard stats)  
-- Firebase (optional, free tier) for push notifications  
+* SwiftUI
+* MVVM
+* Clean Architecture
+* Async/Await
+* Repository pattern
+* Single source of truth using shared ViewModels
 
 ---
+
+## 🛠 Tech Stack
+
+* SwiftUI
+* MapKit
+* Swift Charts
+* CoreLocation
+* UIKit (UIImagePickerController integration)
+
+> ❌ No paid APIs
+> ❌ No API keys required
+> ✅ Runs fully offline with simulated data
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository
+
+```bash
+git clone <repo-url>
+```
+
+2. Open in Xcode
+
+```bash
+open SwiftChatDashboard.xcodeproj
+```
+
+3. Run on:
+
+* Real device (for camera & location)
+* Simulator (photo library supported)
+
+---
+
+## 📌 Notes
+
+* Camera works **only on real devices**
+* Location permission is required for map & weather simulation
+* Image & chat data are stored in memory (demo purpose)
+
+---
+
+## 📄 License
+
+This project is for learning and demonstration purposes.
+
