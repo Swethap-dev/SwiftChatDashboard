@@ -7,12 +7,29 @@
 
 import SwiftUI
 
-struct ChatBubbleView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+import SwiftUI
 
-#Preview {
-    ChatBubbleView()
+struct ChatBubbleView: View {
+    let message: MessageEntity
+
+    var body: some View {
+        HStack {
+            if message.sender == "Me" {
+                Spacer()
+            }
+
+            Text(message.text)
+                .padding(10)
+                .background(message.sender == "Me" ? Color.blue : Color.gray.opacity(0.3))
+                .foregroundColor(message.sender == "Me" ? .white : .primary)
+                .cornerRadius(16)
+                .frame(maxWidth: 250, alignment: message.sender == "Me" ? .trailing : .leading)
+
+            if message.sender != "Me" {
+                Spacer()
+            }
+        }
+        .padding(message.sender == "Me" ? .leading : .trailing, 60)
+        .padding(.vertical, 4)
+    }
 }

@@ -1,7 +1,51 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "%lld" : {
 
+    },
+    "Add" : {
+
+    },
+    "Camera" : {
+
+    },
+    "Category" : {
+
+    },
+    "Chat" : {
+
+    },
+    "Chats" : {
+
+    },
+    "Dashboard" : {
+
+    },
+    "Images" : {
+
+    },
+    "Latitude" : {
+
+    },
+    "Library" : {
+
+    },
+    "Locations" : {
+
+    },
+    "Longitude" : {
+
+    },
+    "Message..." : {
+
+    },
+    "Statistics" : {
+
+    },
+    "Value" : {
+
+    }
   },
   "version" : "1.0"
 }

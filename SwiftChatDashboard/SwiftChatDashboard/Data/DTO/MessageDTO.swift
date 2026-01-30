@@ -5,14 +5,11 @@
 //  Created by swetha on 29/01/26.
 //
 
-import SwiftUI
+import Foundation
 
-struct MessageDTO: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-#Preview {
-    MessageDTO()
+struct MessageDTO: Decodable {
+    let id: Int
+    let userId: Int
+    let title: String
+    let body: String
 }

@@ -7,12 +7,20 @@
 
 import SwiftUI
 
-struct DIContainer: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+@MainActor
+final class DIContainer {
 
-#Preview {
-    DIContainer()
+    let chatRepository: ChatRepositoryProtocol
+    let dashboardRepository: DashboardRepositoryProtocol
+
+    let chatViewModel: ChatViewModel
+    let dashboardViewModel: DashboardViewModel
+
+    init() {
+        self.chatRepository = ChatRepository()
+        self.dashboardRepository = DashboardRepository()
+
+        self.chatViewModel = ChatViewModel()
+        self.dashboardViewModel = DashboardViewModel(repository: dashboardRepository, chatViewModel: chatViewModel)
+    }
 }

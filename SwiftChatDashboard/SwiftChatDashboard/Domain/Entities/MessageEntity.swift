@@ -5,14 +5,14 @@
 //  Created by swetha on 29/01/26.
 //
 
-import SwiftUI
+import Foundation
+import UIKit
 
-struct MessageEntity: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+import Foundation
 
-#Preview {
-    MessageEntity()
+struct MessageEntity: Identifiable, Hashable {
+    let id: UUID = UUID()
+    let text: String
+    let sender: String
+    let timestamp: Date
 }

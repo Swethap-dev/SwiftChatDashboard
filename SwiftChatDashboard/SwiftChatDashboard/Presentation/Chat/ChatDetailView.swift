@@ -6,13 +6,50 @@
 //
 
 import SwiftUI
+import SwiftUI
 
 struct ChatDetailView: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
+    let conversation: ConversationEntity
+    @ObservedObject var viewModel: ChatViewModel
+    @State private var newMessage: String = ""
 
-#Preview {
-    ChatDetailView()
+    var body: some View {
+        VStack {
+            ScrollViewReader { scroll in
+                List {
+                    ForEach(viewModel.messagesDict[conversation.id] ?? [], id: \.id) { message in
+                        ChatBubbleView(message: message)
+                            .listRowSeparator(.hidden)
+                    }
+                }
+                .listStyle(.plain)
+                .onChange(of: viewModel.messagesDict[conversation.id]?.count) { _ in
+                    if let last = viewModel.messagesDict[conversation.id]?.last {
+                        withAnimation {
+                            scroll.scrollTo(last.id, anchor: .bottom)
+                        }
+                    }
+                }
+            }
+
+            HStack {
+                TextField("Message...", text: $newMessage)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .frame(minHeight: 30)
+
+                Button {
+                    guard !newMessage.isEmpty else { return }
+                    viewModel.sendMessage(newMessage, to: conversation)
+                    newMessage = ""
+                } label: {
+                    Image(systemName: "paperplane.fill")
+                        .font(.title2)
+                        .foregroundColor(.blue)
+                }
+            }
+            .padding()
+        }
+        .navigationTitle(conversation.name)
+        .navigationBarTitleDisplayMode(.inline)
+    }
 }

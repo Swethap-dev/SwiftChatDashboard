@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct SwiftChatDashboardApp: App {
+
+    let diContainer = DIContainer()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            // Root View
+            AppCoordinatorView()
+                .environmentObject(diContainer.chatViewModel)
+                .environmentObject(diContainer.dashboardViewModel)
         }
     }
 }

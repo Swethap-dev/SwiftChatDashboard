@@ -5,14 +5,21 @@
 //  Created by swetha on 29/01/26.
 //
 
-import SwiftUI
+import Foundation
 
-struct FetchMessagesUseCase: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
+protocol FetchMessagesUseCase {
+    func execute() async throws -> [MessageEntity]
 }
 
-#Preview {
-    FetchMessagesUseCase()
+final class FetchMessagesUseCaseImpl: FetchMessagesUseCase {
+
+    private let repository: ChatRepository
+
+    init(repository: ChatRepository) {
+        self.repository = repository
+    }
+
+    func execute() async throws -> [MessageEntity] {
+        try await repository.fetchMessages()
+    }
 }
